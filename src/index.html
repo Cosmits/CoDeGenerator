@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UA">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homework 11</title>
+  <title>CoDeGenerator</title>
 </head>
 
 <body>
 
-  <form class="search-form" id="search-form">
-    <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
-    <button type="submit">Search</button>
-  </form>
+  <form class="feedback-form" autocomplete="off">
+    <label>
+      <p>Рядок з набором слів для генерації варіантів</p>
+      <input type="text" name="email" autofocus />
+    </label>
 
-  <ul class="gallery"></ul>
+    <div class="select-container">
+      <div>
+        <label for="size">Size</label>
+        <select id="size" name="size">
+          <!-- <option value="1">1</option> -->
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <!-- <option value="3" selected>3</option> -->
+          <option value="4">4</option>
+        </select>
+      </div>
+      <Span> Worlds counter </Span>
+
+    </div>
+
+    <button type="submit">Generate</button>
+
+    <p class="title-history">History</p>
+    <label class="textarea-container">
+      <textarea name="history" rows="1"></textarea>
+      <div class="line-numbers"></div>
+    </label>
+
+  </form>
 
   <script src="index.js" type="module"></script>
 </body>
