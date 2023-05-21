@@ -1,62 +1,44 @@
-// Описаний в документації
-import SimpleLightbox from "simplelightbox";
-// Додатковий імпорт стилів
-import "simplelightbox/dist/simple-lightbox.min.css";
 
 import './css/styles.css';
-import { anySearchParam, refs } from './models/data';
-import onSubmitForm from './services/onSubmitForm'
-import getPagesLoader from './services/getPagesLoader'
+import { createNumerator } from './textareaNumerator'
 
-import renderSearchBtn from './markups/renderSearchBtn';
-import renderGalleryTitle from './markups/renderGalleryTitle';
+createNumerator();
 
-import debounce from 'lodash.debounce';
-import OnlyScroll from 'only-scrollbar';
+// import { anySearchParam, refs } from './models/data';
+// import onSubmitForm from './services/onSubmitForm'
+// import getPagesLoader from './services/getPagesLoader'
 
-//* OnlyScroll
-const scroll = new OnlyScroll(document.scrollingElement);
+// import renderSearchBtn from './markups/renderSearchBtn';
+// import renderGalleryTitle from './markups/renderGalleryTitle';
 
-//* Render
-renderSearchBtn(refs.SearchButton);
-renderGalleryTitle(refs);
+// //* Render
+// renderSearchBtn(refs.SearchButton);
+// renderGalleryTitle(refs);
 
-//* Listener
-refs.searchForm.addEventListener("submit", onSubmitForm);
+// //* Listener
+// refs.searchForm.addEventListener("submit", onSubmitForm);
 
-//! Infinite scroll - have a problem with trotline
-// async function handleScroll() {
-//   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-//   if (scrollTop + clientHeight >= scrollHeight - (200 * anySearchParam.currentPage)) {
-//     await getPagesLoader();
+// //! Infinite scroll - intersectionObserver
+// const optionsObserver = {
+//   rootMargin: '500px',
+//   threshold: 0.1,
+// };
+
+// const callbackObserver = entries => {
+//   if (entries[0].isIntersecting && !!anySearchParam.currentQuery && !anySearchParam.isDone) {
+//     getPagesLoader();
 //   }
-// }
-// window.addEventListener("scroll", debounce(handleScroll, 50));
+// };
 
-//! Normal scroll
-// window.addEventListener("scroll", debounce(getPagesLoader, 50));
+// const intersectionObserver = new IntersectionObserver(callbackObserver, optionsObserver);
+// // start observing
+// intersectionObserver.observe(refs.titleH1TheEnd);
 
-//! Infinite scroll - intersectionObserver
-const optionsObserver = {
-  rootMargin: '500px',
-  threshold: 0.1,
-};
+// //* Initialize SimpleLightbox
+// const lightbox = new SimpleLightbox(".gallery a", {
+//   captionsData: "alt",
+//   captionDelay: 250,
+//   animationSpeed: 250,
+// });
 
-const callbackObserver = entries => {
-  if (entries[0].isIntersecting && !!anySearchParam.currentQuery && !anySearchParam.isDone) {
-    getPagesLoader();
-  }
-};
-
-const intersectionObserver = new IntersectionObserver(callbackObserver, optionsObserver);
-// start observing
-intersectionObserver.observe(refs.titleH1TheEnd);
-
-//* Initialize SimpleLightbox
-const lightbox = new SimpleLightbox(".gallery a", {
-  captionsData: "alt",
-  captionDelay: 250,
-  animationSpeed: 250,
-});
-
-refs.lightbox = lightbox;
+// refs.lightbox = lightbox;
