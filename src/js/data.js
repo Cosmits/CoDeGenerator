@@ -14,6 +14,13 @@ export const refs = {
 export const data = {
   dataStr: "",
   sizeStr: 0,
+  //arrStr: [],
+  
+  maxN: 0,
+  currentN: 0,
+  
+  maxY: 0,
+  currentY: 0,
 };
 
 
