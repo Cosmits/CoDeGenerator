@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { refs, data } from './data';
+import { getCombinationsCount } from './mathFunc';
 
 function findDuplicateEl(arr) {
   const duplicates = arr.filter((item, index) => arr.indexOf(item) !== index);
@@ -20,18 +21,6 @@ function renderSelect(count) {
   refs.formSelect.disabled = false;
 }
 
-function clearDigitsFromInput(str1) {
-  //   const str2 = str1.replaceAll('    ', ' ');
-  // const str3 = str2.replaceAll('   ', ' ');
-  // console.log("🚀 ~ file: onInputForm.js:26 ~ clearDigitsFromInput ~ str3:", str3)
-  
-  return str1.replaceAll('  ', ' ');
-  
-}
-
-function factorial(n) {
-  return (n != 1) ? n * factorial(n - 1) : 1;
-}
 
 //==========================================
 export default function onInputForm(event) {
@@ -55,12 +44,12 @@ export default function onInputForm(event) {
   }
   
   refs.formButton.disabled = false;
+  refs.formCombinations.disabled = false;
   refs.formH1.textContent = ` ${data.sizeStr} worlds to generate variants`;
   renderSelect(data.sizeStr);
-  let wwww = factorial(data.sizeStr);
-  console.log("🚀 ~ file: onInputForm.js:54 ~ onInputForm ~ wwww:", wwww)
 
-  refs.formCombinations.value = wwww;
+  data.maxCombinationsCount = getCombinationsCount(data.arrStr);
+  refs.formCombinations.value = data.maxCombinationsCount;
 
   
   return true;
