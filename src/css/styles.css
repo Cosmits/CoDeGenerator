@@ -26,24 +26,67 @@ ul {
   flex-direction: column;
   max-width: 480px;
   padding: 12px;
+  margin: 15px auto;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
 
+.feedback-form h1 {
+  font-size: x-large;
+  text-align: center;
+}
 .feedback-form input {
   width: 100%;
   padding: 8px;
+  border-radius: 4px;
 }
 
+/* quantity */
 .select-container {
   display: flex;
   justify-content: space-around;
   margin: 15px;
 }
 
-.title-history,
-.btn {
+.select-container label {
+  font-size: large;
+}
+
+#quantity {
+  font-size: large;
+  min-width: 50px;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+/* combinations */
+#combinations {
+  font-size: large;
+  max-width: 100px;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* button */
+.feedback-form button {
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* textarea */
+.title-history {
   margin: 15px auto;
 }
 
@@ -54,18 +97,11 @@ ul {
   margin-bottom: 16px;
 }
 
-.feedback-form button {
-  padding: 8px 12px;
-  font: inherit;
-  cursor: pointer;
-}
-
 textarea {
   padding: 8px;
   font: inherit;
-}
+  border-radius: 4px;
 
-textarea {
   padding: 5px;
   font-family: inherit;
   line-height: inherit;
@@ -74,6 +110,7 @@ textarea {
   width: 100%;
 }
 
+/* Numerator */
 textarea+.line-numbers {
   counter-reset: line-number;
   padding: 5px;
