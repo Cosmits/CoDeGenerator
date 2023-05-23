@@ -36,6 +36,7 @@ ul {
   font-size: x-large;
   text-align: center;
 }
+
 .feedback-form input {
   width: 100%;
   padding: 8px;
@@ -45,7 +46,7 @@ ul {
 /* quantity */
 .select-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 15px;
 }
 
@@ -54,16 +55,22 @@ ul {
 }
 
 #quantity {
+  display: block;
+
   font-size: large;
-  min-width: 50px;
+  min-width: 110px;
   border-radius: 4px;
   padding: 5px;
+  /* text-align: center; */
 }
 
 /* combinations */
 #combinations {
+  display: block;
+  margin-left: auto;
+
   font-size: large;
-  max-width: 100px;
+  max-width: 140px;
   border-radius: 4px;
   padding: 5px;
   text-align: right;
