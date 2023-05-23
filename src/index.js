@@ -10,4 +10,5 @@ createNumerator();
 
 //* Listener
 refs.formInput.addEventListener("input", debounce(onInputForm, 500));
-refs.formButton.addEventListener("submit", onSubmitForm);
+
+refs.form.addEventListener("submit", onSubmitForm);

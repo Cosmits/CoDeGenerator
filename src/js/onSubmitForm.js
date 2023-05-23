@@ -1,50 +1,38 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { refs, data } from './data';
+import { permutateWithoutRepetitions, combineWithoutRepetitions } from './mathFunc';
+import { createNumerator } from './textareaNumerator';
 
 
-function sattoloCycle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+function renderTextarea(resultArray, count) {
+  let value = '';
+  let i = 0;
+
+  for (i = 0; i < count; i++) {
+    value += resultArray[i].join(' ');
+    if (i < count - 1) value += '\n';
   }
-  return arr;
-}
 
+  refs.formTextarea.value = value;
+  createNumerator();
+  Notify.success(`Generate ${count} combinations`);
+}
 
 //===========================================
 export default function onSubmitForm(event) {
   event.preventDefault();
-  console.log("markUp");
+
+  //Quantity 'Y'
+  const YYY = Number(refs.formSelect.value);
+  //Combinations 'N'
+  const NNN = Number(refs.formCombinations.value);
+  let resultArray = [];
+
+  if (data.sizeStr === YYY) {
+    resultArray = permutateWithoutRepetitions(data.arrStr);
+  } else {
+    resultArray = combineWithoutRepetitions(data.arrStr, YYY);
+  }
+
+  renderTextarea(resultArray, NNN);
 }
-
-
-// const facts = [];
-// function fact(N) {
-//   if (N == 0 || N == 1) return 1;
-//   if (facts[N]) return facts[N];
-//   facts[N] = N * fact(N - 1);
-//   return facts[N];
-// }
-// function permutation(index, A) {
-//   var n = A.length;
-//   var i = index + 1;
-//   var res = [];
-//   for (var t = 1; t <= n; t++) {
-//     var f = fact(n - t);
-//     var k = Math.floor((i + f - 1) / f);
-//     res.push(A.splice(k - 1, 1)[0]);
-//     i -= (k - 1) * f;
-//   }
-//   if (A.length) res.push(A[0]);
-//   return res;
-// }
-
-// function log() {
-//   var msg = Array.prototype.slice.call(arguments).join(" ");
-//   document.getElementById("log").value += "\n" + msg;
-//   console.log(arguments);
-// }
-// var M = ["A", "B", "C", "D", "E"];
-// for (var i = 0; i < fact(M.length); i++) {
-//   log(i, permutation(i, M.slice(0)).join(""));
-// }
