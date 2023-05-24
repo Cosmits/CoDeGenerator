@@ -28,12 +28,12 @@ function renderH1(sizeStr) {
   refs.formH1.textContent = ` ${sizeStr} worlds to generate variants`;
 }
 
-function renderCombinations(arrStr, sizeStr) { 
-  data.maxCombinationsCount = getCombinationsCount(arrStr, sizeStr);
-  refs.formCombinations.value = data.maxCombinationsCount;
-  refs.formCombinations.placeholder = `1 ... ${data.maxCombinationsCount}`;
+export function renderCombinations(arrStr, sizeStr) { 
+  const maxCombinationsCount = getCombinationsCount(arrStr, sizeStr);
+  refs.formCombinations.value = maxCombinationsCount;
+  refs.formCombinations.placeholder = `1 ... ${maxCombinationsCount}`;
   refs.formCombinations.min = `1`;
-  refs.formCombinations.max = `${data.maxCombinationsCount}`;
+  refs.formCombinations.max = `${maxCombinationsCount}`;
 }
 
 //==========================================
@@ -45,7 +45,7 @@ export default function onInputForm(event) {
   data.sizeStr = data.dataStr.split(" ").length;
   data.arrStr = data.dataStr.split(" ");
 
-  if (data.sizeStr < 2) return "";
+  if (data.sizeStr < 2) return false;
 
   const duplicateCount = findDuplicateEl(data.arrStr);
   if (!!duplicateCount) {

@@ -6,9 +6,12 @@ import { createNumerator } from './textareaNumerator';
 
 function renderTextarea(resultArray, count) {
   let value = '';
-  let i = 0;
 
-  for (i = 0; i < count; i++) {
+
+  for (let i = 0; i < count; i++) {
+
+    console.log("resultArray:", resultArray[i])
+
     value += resultArray[i].join(' ');
     if (i < count - 1) value += '\n';
   }
@@ -24,6 +27,8 @@ export default function onSubmitForm(event) {
 
   //Quantity 'Y'
   const YYY = Number(refs.formSelect.value);
+
+
   //Combinations 'N'
   const NNN = Number(refs.formCombinations.value);
   let resultArray = [];
@@ -34,5 +39,6 @@ export default function onSubmitForm(event) {
     resultArray = combineWithoutRepetitions(data.arrStr, YYY);
   }
 
-  renderTextarea(resultArray, NNN);
+  const count = NNN > data.arrStr.length ? data.arrStr.length : NNN;
+  renderTextarea(resultArray, count);
 }

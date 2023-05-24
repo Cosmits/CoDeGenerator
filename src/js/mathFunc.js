@@ -20,7 +20,6 @@ export function getCombinations(array, k = 2) {
 
 //================================================================
 export function getCombinationsCount(array, k = 2) {
-
   const n = array.length;
   let result = 1;
   for (let i = n; i > n - k; i--) {
