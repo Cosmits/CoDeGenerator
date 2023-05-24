@@ -13,7 +13,6 @@ export const refs = {
 
 export const data = {
   dataStr: "",
-  sizeStr: 0,
   //arrStr: [],
 
   maxY: 0,
@@ -24,9 +23,7 @@ export const data = {
 
 };
 
-
 // for Local Storage
 export const KEY_STORE_INPUT = 'CoDeGenerator-form-input';
 export const KEY_STORE_SELECT = 'CoDeGenerator-form-select';
 export const KEY_STORE_HISTORY = 'CoDeGenerator-form-history';
-

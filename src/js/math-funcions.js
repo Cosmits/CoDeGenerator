@@ -1,32 +1,35 @@
-import { data } from "./data";
-
 //================================================================
 export function factorial(n) {
-  return (n !== 1) ? n * factorial(n - 1) : 1;
+  return (n === 0) ? 1 : n * factorial(n - 1) ;
 }
 
-//================================================================
-export function getCombinations(array, k = 2) {
-  const result = [];
-  const f = function (prefix, array) {
-    for (let i = 0; i < array.length; i++) {
-      result.push(prefix.concat(array[i]));
-      f(prefix.concat(array[i]), array.slice(i + 1));
-    }
-  }
-  f([], array);
-  return result.filter(x => x.length === k);
+export function getCombinationsWithoutRepetition(n, k) {
+  if (n === k) return factorial(parseInt(n));
+  return factorial(parseInt(n)) / factorial(parseInt(n - k));
 }
 
-//================================================================
-export function getCombinationsCount(array, k = 2) {
-  const n = array.length;
-  let result = 1;
-  for (let i = n; i > n - k; i--) {
-    result *= i;
-  }
-  return result;
-}
+// //================================================================
+// export function getCombinations(array, k = 2) {
+//   const result = [];
+//   const f = function (prefix, array) {
+//     for (let i = 0; i < array.length; i++) {
+//       result.push(prefix.concat(array[i]));
+//       f(prefix.concat(array[i]), array.slice(i + 1));
+//     }
+//   }
+//   f([], array);
+//   return result.filter(x => x.length === k);
+// }
+
+// //================================================================
+// export function getCombinationsCount(array, k = 2) {
+//   const n = array.length;
+//   let result = 1;
+//   for (let i = n; i > n - k; i--) {
+//     result *= i;
+//   }
+//   return result;
+// }
 
 //================================================================
 //* https://github.com/trekhleb/javascript-algorithms/blob/master/README.uk-UA.md
