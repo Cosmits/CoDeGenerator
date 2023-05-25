@@ -3,6 +3,12 @@ import { data } from '../data';
 import { permutateWithoutRepetitions, combineWithoutRepetitions } from '../math-funcions';
 import { renderTextarea } from '../renders';
 
+function concatTwolevelArray(a,b) { 
+  return a.concat(b).filter((item, index) => {
+    return a.concat(b).indexOf(item) === index;
+  });
+}
+
 //===========================================
 export default function onSubmitForm(event) {
   event.preventDefault();
@@ -12,8 +18,10 @@ export default function onSubmitForm(event) {
   if (data.arrStr.length === data.currentY) {
     resultArray = permutateWithoutRepetitions(data.arrStr);
   } else {
-    resultArray = combineWithoutRepetitions(data.arrStr, data.currentY);
+    const tempArray = combineWithoutRepetitions(data.arrStr, data.currentY);
+    for (let index = 0; index < tempArray.length; index++) {
+      resultArray = concatTwolevelArray(resultArray, permutateWithoutRepetitions(tempArray[index]))
+    }
   }
-
   renderTextarea(resultArray, data.currentN);
 }

@@ -38,14 +38,8 @@ export function renderCombinations(arrStr, sizeStr) {
 export function renderTextarea(resultArray, count) {
 
   let value = '';
-  console.log(data);
-  console.log("🚀 ~ file: renders.js:38 ~ renderTextarea ~ count:", count)
-  console.log(resultArray);
-
+  
   for (let i = 0; i < count; i++) {
-
-    // console.log("resultArray:", resultArray[i])
-
     value += resultArray[i].join(' ');
     if (i < count - 1) value += '\n';
   }
