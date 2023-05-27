@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { refs } from "../data";
+import { data, refs } from "../data";
 
 export default function onClipboardButton(event) {
 
@@ -11,16 +11,26 @@ export default function onClipboardButton(event) {
   // Get the text field
   const copyText = refs.formTextarea;
 
-  // // Select the text field
-  // copyText.select();
-  // copyText.setSelectionRange(0, 99999); // For mobile devices
+  console.dir(copyText);
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, data.currentN); // For mobile devices
 
   // Copy the text inside the text field
   navigator.clipboard.writeText(copyText.value);
 
+  // UnSelect the text field
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+
   setTimeout(() => {
     refs.svgCopyIcon.classList.remove('hide');
     refs.svgCopyDone.classList.add('hide');
+
+    // copyText.removeAllRanges();
+    // copyText.empty();
+
   }, 1000);
 
 }
