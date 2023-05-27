@@ -8,6 +8,15 @@ export const refs = {
   formCombinations: document.getElementById('combinations'),
 
   formButton: document.querySelector('.feedback-form button'),
+  
+  checkerSaveToFile: document.querySelector('.save-to-file'),
+
+  formHistoryTitle: document.querySelector('.title-history'),
+  
+  clipboardButton: document.querySelector('.ClipboardButton'),
+  svgCopyIcon: document.querySelector('.copy-icon'),
+  svgCopyDone: document.querySelector('.copy-done'),
+
   formTextarea: document.querySelector('.feedback-form textarea'),
 }
 
@@ -21,6 +30,7 @@ export const data = {
   maxN: 0,
   currentN: 0,
 
+  saveToFile: false,
 };
 
 // for Local Storage
