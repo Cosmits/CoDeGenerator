@@ -49,3 +49,30 @@ export function renderTextarea(resultArray, count) {
   createNumerator();
   Notify.success(`Generate ${count} combinations`);
 }
+
+//==========================================
+export function renderStatusChecker() {
+  if (data.saveToFile) {
+    document.querySelector('.line-numbers').classList.add('hide');
+
+    refs.clipboardButton.childNodes[1].classList.add('hide');
+    refs.svgCopyIcon.classList.add('hide');
+
+    refs.formTextarea.classList.add('hide');
+
+    refs.formButton.textContent = 'Save to file *.txt';
+    const filename = `Generate__${data.currentY}-out-of-${data.currentN}.txt`;
+    refs.formHistoryTitle.textContent = filename;
+
+  } else {
+    document.querySelector('.line-numbers').classList.remove('hide');
+
+    refs.clipboardButton.childNodes[1].classList.remove('hide');
+    refs.svgCopyIcon.classList.remove('hide');
+
+    refs.formTextarea.classList.remove('hide');
+
+    refs.formButton.textContent = 'Generate';
+    refs.formHistoryTitle.textContent = 'History';
+  }
+}

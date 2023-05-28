@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { refs, data } from '../data';
-import { renderCombinations, renderH1, renderSelect } from '../renders';
+import { renderCombinations, renderH1, renderSelect, renderStatusChecker } from '../renders';
+
 
 //==========================================
 function findDuplicateEl(arr) {
@@ -29,7 +30,6 @@ export default function onInputForm(event) {
 
   refs.formButton.disabled = false;
   refs.formCombinations.disabled = false;
-
   renderH1(data.arrStr.length);
   renderSelect(data.arrStr.length);
   renderCombinations(data.arrStr, data.arrStr.length);
@@ -41,6 +41,17 @@ export default function onInputForm(event) {
   //Combinations 'N'
   data.currentN = Number(refs.formCombinations.value);
   data.maxN = data.currentN;
+
+  if (data.arrStr.length > 4) {
+    data.saveToFile = true;
+    console.dir(refs.checkerSaveToFile);
+    refs.checkerSaveToFile.children[0].checked = true;
+    refs.checkerSaveToFile.children[0].disabled = true;
+  } else {
+    refs.checkerSaveToFile.children[0].disabled = false;
+  }
+
+  renderStatusChecker();
 
   return true;
 }

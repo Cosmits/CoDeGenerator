@@ -1,7 +1,8 @@
 import { data } from "./data";
 
 export function saveToFile(resultArray, count) {
-  const filename = `${data.arrStr.join('-')}__${data.currentY}-out-of-${data.currentN}.txt`;
+  // const filename = `${data.arrStr.join('-')}__${data.currentY}-out-of-${data.currentN}.txt`;
+  const filename = `Generate__${data.currentY}-out-of-${data.currentN}.txt`;
 
   let value = '';
   for (let i = 0; i < count; i++) {
