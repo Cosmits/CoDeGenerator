@@ -42,7 +42,7 @@ export default function onInputForm(event) {
   data.currentN = Number(refs.formCombinations.value);
   data.maxN = data.currentN;
 
-  if (data.arrStr.length > 4) {
+  if (data.arrStr.length > 7) {
     data.saveToFile = true;
     console.dir(refs.checkerSaveToFile);
     refs.checkerSaveToFile.children[0].checked = true;
