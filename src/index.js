@@ -8,7 +8,8 @@ import onSubmitForm from './js/listener/on-submit-form';
 import onSelectForm from './js/listener/on-select-form';
 import onCombinationForm from './js/listener/on-combination-form';
 import onClipboardButton from './js/listener/on-clipboard-button';
-import onCheckerSaveToFile from './js/listener/on-checker-save-to-file';
+import { onCheckerSaveToFile } from './js/listener/on-checker-save-to-file';
+
 
 createNumerator();
 
