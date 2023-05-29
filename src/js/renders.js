@@ -9,7 +9,6 @@ export function renderSelect(count) {
 
   let markUp = "";
   for (let i = 2; i <= count; i++) {
-    // console.log(i);
     const selected = i === count ? "selected" : "";
     markUp = markUp + `<option value="${i}" ${selected}>${i}</option>`;
   }
