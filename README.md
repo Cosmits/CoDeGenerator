@@ -1,20 +1,30 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/Cosmits/CoDeGenerator) ![GitHub last commit](https://img.shields.io/github/last-commit/Cosmits/CoDeGenerator) ![GitHub Release Date](https://img.shields.io/github/release-date/Cosmits/CoDeGenerator) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Cosmits/CoDeGenerator) ![GitHub repo size](https://img.shields.io/github/repo-size/Cosmits/CoDeGenerator)
 # Критерії приймання
 
-Даний набір слів чи елементів [A, B, C, D].
-Мені їх потрібно перемішати та видати 'N' результатів в такому форматі та кількості 'Y'. Слова не можуть повторюватись в варіантах преборую
+Потрібно перемішати та видати 'N' результатів та кількості 'Y'. Слова не можуть повторюватись в варіантах пребору. 
 
+### Тобто:
+  * Можливість вказувати генеруєму кількість слів
+  * Можливість вказувати кількість сгенерованих рядків
+
+Даний набір слів чи елементів [A, B, C, D].
+### Виключити не правильні резльтати:
   1. False => [A, A, A] 
   2. False => [A, B, A]
 
-  3. True => [C, A, D]
-  4. True => [B, A, C]
-  5. True => [A, B, C]
+### Виводити правильні резльтати:
+  1. True => [C, A, D]
+  2. True => [B, A, C]
+  3. True => [A, B, C]
 ### Нюанси: 
   1. Додати кнопку "Copy to clipboard".
   2. Нумерація рядків при виведенні результатів.
-  2. Додати можливіть зберігати результати в файл.
-  3. Якщо слів більше 7, то зберігати результати тільки в файл. (*Optimization rendering)
+  3. Додати можливіть зберігати результати в файл.
+  4. Якщо слів більше 7, то зберігати результати тільки в файл. (*Optimization rendering)
+
+## Використані алгоритми   
+* [Перестановка](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/permutations) (з повтореннями та без)
+* [Комбінації](https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/combinations) (з повтореннями та без)
 
 ### Stack technology:
 
