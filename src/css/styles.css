@@ -85,6 +85,7 @@ ul {
 /* quantity */
 .select-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 15px;
 }
@@ -137,7 +138,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media screen and (max-width: 480px) {
-.title-history {
+  .title-history {
     margin-right: 0;
   }
 }
