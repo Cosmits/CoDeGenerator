@@ -9,7 +9,6 @@ export function renderSelect(count) {
 
   let markUp = "";
   for (let i = 2; i <= count; i++) {
-    // console.log(i);
     const selected = i === count ? "selected" : "";
     markUp = markUp + `<option value="${i}" ${selected}>${i}</option>`;
   }
@@ -36,18 +35,27 @@ export function renderCombinations(arrStr, sizeStr) {
 
 //==========================================
 export function renderTextarea(resultArray, count) {
-
-  let value = '';
   
-  for (let i = 0; i < count; i++) {
-    value += resultArray[i].join(' ');
-    if (i < count - 1) value += '\n';
+  Notify.success(`Generate ${count} combinations`);
+  let value = '';
+
+  //*** serial output
+  // for (let i = 0; i < count; i++) {
+  //   value += resultArray[i].join(' ');
+  //   if (i < count - 1) value += '\n';
+  // }
+
+  //*** random output
+  while (resultArray.length > 0 && count > 0) {
+    let randomIndex = Math.floor(Math.random() * resultArray.length);
+    value += resultArray[randomIndex].join(' ');
+    if (count - 1 > 0) value += '\n';
+    resultArray.splice(randomIndex, 1);
+    count -= 1;
   }
 
   refs.formTextarea.value = value;
-
   createNumerator();
-  Notify.success(`Generate ${count} combinations`);
 }
 
 //==========================================

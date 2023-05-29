@@ -8,29 +8,6 @@ export function getCombinationsWithoutRepetition(n, k) {
   return factorial(parseInt(n)) / factorial(parseInt(n - k));
 }
 
-// //================================================================
-// export function getCombinations(array, k = 2) {
-//   const result = [];
-//   const f = function (prefix, array) {
-//     for (let i = 0; i < array.length; i++) {
-//       result.push(prefix.concat(array[i]));
-//       f(prefix.concat(array[i]), array.slice(i + 1));
-//     }
-//   }
-//   f([], array);
-//   return result.filter(x => x.length === k);
-// }
-
-// //================================================================
-// export function getCombinationsCount(array, k = 2) {
-//   const n = array.length;
-//   let result = 1;
-//   for (let i = n; i > n - k; i--) {
-//     result *= i;
-//   }
-//   return result;
-// }
-
 //================================================================
 //* https://github.com/trekhleb/javascript-algorithms/blob/master/README.uk-UA.md
 //* https://github.com/trekhleb/javascript-algorithms/blob/master/src/algorithms/sets/permutations/README.md
