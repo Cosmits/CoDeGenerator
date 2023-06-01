@@ -6,9 +6,15 @@ import { renderCombinations, renderH1, renderSelect, renderStatusChecker } from 
 //==========================================
 function findDuplicateEl(arr) {
   const duplicates = arr.filter((item, index) => arr.indexOf(item) !== index);
-  return duplicates.length;
+  return duplicates;
 }
-
+//==========================================
+function deleteDuplicateEl(arr) {
+  let uniqueArr = arr.filter((item, index) => {
+    return arr.indexOf(item) === index;
+  });
+  return uniqueArr;
+}
 //==========================================
 export default function onInputForm(event) {
   event.preventDefault();
@@ -18,14 +24,17 @@ export default function onInputForm(event) {
 
   if (data.arrStr.length < 2) return false;
 
-  const duplicateCount = findDuplicateEl(data.arrStr);
-  if (!!duplicateCount) {
+  const duplicateArr = findDuplicateEl(data.arrStr);
+  if (!!duplicateArr.length) {
 
-    refs.formH1.textContent = `Duplicate ${duplicateCount} world(s)`;
-    Notify.failure(refs.formH1.textContent);
-    refs.formButton.disabled = true;
+    Notify.failure(`Duplicate:  ${duplicateArr.join(' ') }`);
+    //refs.formH1.textContent = `Duplicate ${duplicateArr} world(s)`;
+    //refs.formButton.disabled = true;
+    //return false;
 
-    return false;
+    data.arrStr = deleteDuplicateEl(data.arrStr);
+    data.dataStr = data.arrStr.join(' ');
+    event.target.value = data.dataStr;
   }
 
   refs.formButton.disabled = false;
